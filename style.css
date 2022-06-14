@@ -1,0 +1,52 @@
+/* section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+} */
+
+/* reset css */
+body {
+  background-color: #e2e2e2;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+/* css start */
+.tabs {
+  position: relative;
+}
+
+#circle {
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.todo-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todoList-content {
+  min-height: 80vh;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+/* when user complete to do */
+.complete {
+  text-decoration: line-through;
+}
