@@ -7,7 +7,6 @@ const inputBtn = document.querySelector("#input-btn");
 const tabs = document.querySelectorAll(".tabs button");
 const dataArea = document.querySelector(".date-area")
 const circleSign = document.querySelector("#circle");
-console.log(circleSign);
 
 //let
 let toDoList = [];
@@ -23,7 +22,7 @@ userInput.addEventListener("focus", () => {userInput.value = "";});
 userInput.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
     addTodo(event);
-  }
+  };
 });
 
 tabs.forEach((item, index)=>{
@@ -34,6 +33,13 @@ tabs.forEach((item, index)=>{
 //function
 //add user to do
 function addTodo(){
+
+  //check userValue
+  if(userInput.value == ""){
+    alert('할일을 입력해주세요!!');
+    return;
+  };
+
   let toDoObj = {
     id : generateRandomID(),
     toDoContent : userInput.value,
@@ -78,7 +84,7 @@ function render(){
   });
   let board = document.querySelector(".board");
   board.innerHTML = renderHTML;
-}
+};
 
 // check isComplete
 function toggleComplete(id){
@@ -130,7 +136,7 @@ function toDoFilter(event){
       };
     });
     render();
-  }
+  };
 };
 
 //generate ID
@@ -145,8 +151,6 @@ function date() {
   let year = today.getFullYear(); 
   let month = today.getMonth() + 1
   let date = today.getDate();
- 
-  let dayOfWeek = week[new Date(`${year}-${month}-${date}`).getDay()];
+  let dayOfWeek = week[today.getDay()];
   return `오늘은 ${year}년 ${month}월 ${date}일 ${dayOfWeek}요일입니다.`;
-}
-
+};
