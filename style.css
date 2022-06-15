@@ -1,52 +1,190 @@
-/* section {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-} */
+/* coded by sukyungdev */
+/* last update 2022.06.15 */
 
 /* reset css */
-body {
-  background-color: #e2e2e2;
-}
 * {
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  background-color: #cddce1;
+  font-family: 'NanumSquare', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6FB3D9;
+}
+
 button,
 input {
-  border: none;
   outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 /* css start */
+.todoList-content {
+  /* min-height: 70vh; */
+  border-radius: 15px;
+  background-color: #F9F9F9;
+  box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 20px;
+}
+
+.title {
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  color: #60a4cc;
+  margin-bottom: 10px;
+}
+
+.date-area,
+.desc {
+  color: #898989;
+}
+
+.date-area {
+  margin-bottom: 30px;
+}
+
+.desc {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* form */
+
+.input-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#user-input {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 3px #d7d7d7,
+            inset -5px -5px 3px #e9e9e9;
+  height: 45px;
+  padding: 0 15px;
+  margin-right: 10px;
+  flex-grow: 1;
+  transition: border 200ms ease-in;
+}
+
+#user-input:hover::placeholder {
+  color: #6FB3D9;
+}
+
+#input-btn .fa-circle-plus{
+  font-size: 45px;
+  color: #6FB3D9;
+  border-radius: 50%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#input-btn .fa-circle-plus:hover{
+  color: #2b83b6;
+  transition: color 200ms ease-in;
+}
+
+/* tabs */
 .tabs {
   position: relative;
+  padding: 10px 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
+/* tabs circle */
 #circle {
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  background-color: blue;
+  top: 18px;
+  left: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #FFBCBC;
   border-radius: 50%;
   position: absolute;
+  transition: all 300ms ease-out;
 }
 
+.tabs > button {
+  color: #60a4cc;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+/* todo-area */
 .todo-area {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #707070;
+  font-size: 18px;
+  overflow: auto;
+  margin-bottom: 10px;
 }
 
-.todoList-content {
-  min-height: 80vh;
-  background-color: antiquewhite;
-  padding: 20px;
+.todo-area:last-child {
+  margin-bottom: 0;
+}
+
+.todo-area p {
+  margin: 0;
+  padding: 15px 10px;
+}
+
+.todo-area > div {
+  padding: 10px;
+}
+
+.todo-area button {
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.todo-area button:first-child {
+  color: #5595bb;
+  padding: 5px 11px;
+}
+
+.todo-area button:last-child {
+  color: #f8a8a8;
+  padding: 5px 12px;
+}
+
+.todo-area button:hover {
+  box-shadow: rgba(77, 104, 134, 0.3) 0px 0px 0px 3px;
+  transition: box-shadow 300ms ease-in;
 }
 
 /* when user complete to do */
 .complete {
-  text-decoration: line-through;
+  border-radius: 7px;
+  background-color: #d5e8ed;
+}
+
+/* sukyungdev */
+section > a {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  font-size: 12px;
+  color: #707070;
 }

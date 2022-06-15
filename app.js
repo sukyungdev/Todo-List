@@ -18,8 +18,14 @@ let mode = "all";
 dataArea.innerHTML = `${date()}`;
 
 //eventListener
-userInput.addEventListener("focus", () => {userInput.value = "";});
 inputBtn.addEventListener("click", addTodo);
+userInput.addEventListener("focus", () => {userInput.value = "";});
+userInput.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    addTodo(event);
+  }
+});
+
 tabs.forEach((item, index)=>{
   tabs[index].addEventListener("click", function(event){toDoFilter(event)})
 });
@@ -49,13 +55,14 @@ function render(){
 
   let renderHTML = '';
   emptyList.forEach((item,index) => {
+    
     if(emptyList[index].isComplete == true){
       renderHTML += `
         <div class="todo-area">
           <p class="complete">${emptyList[index].toDoContent}</p>
           <div>
-              <button onclick="toggleComplete('${emptyList[index].id}')">o</button>
-              <button onclick="deleteTodo('${emptyList[index].id}')">x</button>
+            <button onclick="toggleComplete('${emptyList[index].id}')"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+            <button onclick="deleteTodo('${emptyList[index].id}')"><i class="fa-regular fa-trash-can"></i></button>
           </div>
         </div>`;
     } else {
@@ -63,8 +70,8 @@ function render(){
         <div class="todo-area">
           <p>${emptyList[index].toDoContent}</p>
           <div>
-              <button onclick="toggleComplete('${emptyList[index].id}')">o</button>
-              <button onclick="deleteTodo('${emptyList[index].id}')">x</button>
+              <button onclick="toggleComplete('${emptyList[index].id}')"><i class="fa-solid fa-check"></i></button>
+              <button onclick="deleteTodo('${emptyList[index].id}')"><i class="fa-regular fa-trash-can"></i></button>
           </div>
         </div>`;
     }
@@ -102,8 +109,9 @@ function toDoFilter(event){
   if(event){
     mode = event.target.id;
     //circle sign setting
-    circleSign.style.left = event.currentTarget.offsetLeft + "px";
-    circleSign.style.top = event.currentTarget.offsetTop + "px";
+    // circleSign.style.left = event.currentTarget.offsetLeft + "px";
+    circleSign.style.left = (event.currentTarget.offsetLeft + 8) + "px";
+    circleSign.style.top = (event.currentTarget.offsetTop + 8) + "px";
   }
   filterList = [];
   if (mode == "all"){
