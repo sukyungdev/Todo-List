@@ -19,11 +19,6 @@ dataArea.innerHTML = `${date()}`;
 //eventListener
 inputBtn.addEventListener("click", addTodo);
 userInput.addEventListener("focus", () => {userInput.value = "";});
-userInput.addEventListener("keydown", function (event) {
-  if (event.keyCode === 13) {
-    addTodo(event);
-  };
-});
 
 tabs.forEach((item, index)=>{
   tabs[index].addEventListener("click", function(event){toDoFilter(event)})
@@ -32,8 +27,8 @@ tabs.forEach((item, index)=>{
 
 //function
 //add user to do
-function addTodo(){
-
+function addTodo(event){
+  event.preventDefault();  
   //check userValue
   if(userInput.value == ""){
     alert('할일을 입력해주세요!!');
